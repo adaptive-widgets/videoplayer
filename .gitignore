@@ -1,0 +1,12 @@
+.idea/
+node_modules/
+lib/
+.sass-cache/
+npm-debug.log
+coverage/
+.DS_STORE
+dist/
+.cache
+.nyc_output
+cypress/videos/*
+cypress/screenshots/*

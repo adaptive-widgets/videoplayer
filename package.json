@@ -1,0 +1,89 @@
+{
+  "version": "0.0.1",
+  "license": "MIT",
+  "name": "@adaptive/videoplayer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaptive-widgets/videoplayer.git"
+  },
+  "author": "Adaptive Widgets Team (https://github.com/adaptive-widgets)",
+  "bugs": {
+    "url": "https://github.com/adaptive-widgets/videoplayer/issues"
+  },
+  "homepage": "https://github.com/adaptive-widgets/videoplayer#readme",
+  "description": "",
+  "keywords": [
+    "react",
+    "react-component",
+    "video",
+    "player",
+    "videoplayer"
+  ],
+  "scripts": {
+    "start": "cd example && npm run dev",
+    "test": "cypress open --component",
+    "test:run": "cypress run --component -b chrome",
+    "clean": "rimraf dist",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "prettier": "prettier --write src",
+    "prettier-scss": "prettier --write scss",
+    "sass": "sass scss/main.scss dist/Videoplayer.css",
+    "style": "npm run sass",
+    "build": "npm run clean && npm run style && husky install",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "@cypress/code-coverage": "^3.12.48",
+    "@eslint/js": "^9.10.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@testing-library/cypress": "^10.0.2",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "coveralls": "^3.0.9",
+    "cypress": "^13.14.2",
+    "eslint": "^8.57.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "globals": "^15.9.0",
+    "husky": "^9.1.5",
+    "prettier": "3.3.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "rimraf": "^6.0.1",
+    "sass": "^1.78.0",
+    "ts-jest": "^29.2.5",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.5.0",
+    "vite": "^5.4.4",
+    "vite-plugin-istanbul": "^6.0.2"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
+  },
+  "files": [
+    "dist",
+    "scss"
+  ],
+  "sideEffects": true,
+  "main": "dist/index.js",
+  "source": "src/index.ts",
+  "typings": "dist/index.d.ts",
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  }
+}
