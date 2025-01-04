@@ -25,16 +25,17 @@
     "test:run": "cypress run --component -b chrome",
     "clean": "rimraf dist",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "prettier": "prettier --write src",
-    "prettier-scss": "prettier --write scss",
+    "format": "prettier --write src",
+    "format-example": "prettier --write example",
+    "format-scss": "prettier --write scss",
     "sass": "sass scss/main.scss dist/Videoplayer.css",
     "style": "npm run sass",
     "build": "npm run clean && npm run style && husky install",
     "prepare": "husky"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   },
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.5",
@@ -71,19 +72,29 @@
   "dependencies": {
     "clsx": "^2.1.1"
   },
+  "prettier": {
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "standard": {
+    "ignore": [
+      "/dist/*",
+      "/example/*"
+    ]
+  },
   "files": [
     "dist",
     "scss"
   ],
   "sideEffects": true,
   "main": "dist/index.js",
-  "source": "src/index.ts",
   "typings": "dist/index.d.ts",
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "arrowParens": "avoid"
+  "module": "dist/index.mjs",
+  "source": "src/index.ts",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
   }
 }

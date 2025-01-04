@@ -1,26 +1,21 @@
 import React from 'react';
-import videos from './assets/output.webm';
+import PlayerProvider from '../../src/provider';
+import { createPlayer } from '../../src/hooks';
+import VideoPlayerPreview from './video-player-preview';
 
-import { VideoPlayer } from '../../src/components';
+const SetupPlayer = () => {
+  createPlayer('player-1', { autoplay: false, volume: 0.5 });
+  createPlayer('player-2', { autoplay: true, volume: 0.8 });
+
+  return null; // This component is used only to initialize players
+};
 
 const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <div style={{ width: '40%' }}>
-          <VideoPlayer videoSrc={videos} videoId="1" autoplay={true} />
-        </div>
-        <div style={{ width: '40%' }}>
-          <VideoPlayer videoSrc={videos} videoId="2" />
-        </div>
-        <div style={{ width: '40%' }}>
-          <VideoPlayer videoSrc={videos} videoId="3" />
-        </div>
-        <div style={{ width: '40%' }}>
-          <VideoPlayer videoSrc={videos} videoId="4" />
-        </div>
-      </div>
-    </>
+    <PlayerProvider>
+      <SetupPlayer />
+      <VideoPlayerPreview />
+    </PlayerProvider>
   );
 };
 
