@@ -95,6 +95,6 @@
   "module": "dist/index.mjs",
   "source": "src/index.ts",
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
+    "*.{js,jsx,ts,tsx,md,html,css}": "format --write"
   }
 }
