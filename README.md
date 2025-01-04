@@ -47,7 +47,7 @@ React hook to access and control an existing video player.
 Wrap your app with the `PlayerProvider`:
 
 ```jsx
-import { PlayerProvider } from 'react-video-player-plugin';
+import { PlayerProvider } from '@adaptive/videoplayer';
 
 const App = () => (
   <PlayerProvider>
@@ -59,14 +59,14 @@ const App = () => (
 ### 2. Create a Player
 
 ```jsx
-import { createPlayer } from 'react-video-player-plugin';
+import { createPlayer } from '@adaptive/videoplayer';
 
 createPlayer('player-1', { autoplay: false, volume: 0.5 });
 ```
 ### 3. Use the Player
 
 ```jsx
-import { usePlayer } from 'react-video-player-plugin';
+import { usePlayer } from '@adaptive/videoplayer';
 
 const VideoPlayer = () => {
   const player = usePlayer('player-1');
