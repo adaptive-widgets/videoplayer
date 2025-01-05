@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { PlayerRegistryContext } from './context';
+import { PlayerRegistryContext, PlayerState } from './context';
 
 // Hook to create a player
-export const createPlayer = (playerId, config = {}) => {
+export const createPlayer = (playerId: string, config: Partial<PlayerState> = {}) => {
   const context = useContext(PlayerRegistryContext);
   if (!context) {
     throw new Error('createPlayer must be used within a PlayerProvider');
@@ -11,7 +11,7 @@ export const createPlayer = (playerId, config = {}) => {
 };
 
 // Hook to use an existing player
-export const usePlayer = playerId => {
+export const usePlayer = (playerId: string) => {
   const context = useContext(PlayerRegistryContext);
   if (!context) {
     throw new Error('usePlayer must be used within a PlayerProvider');
@@ -33,12 +33,12 @@ export const usePlayer = playerId => {
     dispatch({ type: 'PAUSE', playerId });
   };
 
-  const setVolume = volume => {
+  const setVolume = (volume: number) => {
     player.ref.current.volume = volume;
     dispatch({ type: 'SET_VOLUME', playerId, payload: volume });
   };
 
-  const seekTo = time => {
+  const seekTo = (time: number) => {
     player.ref.current.currentTime = time;
     dispatch({ type: 'SET_CURRENT_TIME', playerId, payload: time });
   };
