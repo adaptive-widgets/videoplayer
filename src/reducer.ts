@@ -22,7 +22,7 @@ export enum PlayerActionTypes {
 }
 
 // Payload Types
-interface InitPlayerPayload extends Partial<PlayerState> {}
+export interface InitPlayerPayload extends Partial<PlayerState> {}
 type VolumePayload = number;
 type CurrentTimePayload = number;
 
