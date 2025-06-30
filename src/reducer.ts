@@ -56,7 +56,7 @@ type SetCurrentTimeAction = {
 };
 
 // Union of all Actions
-type PlayerAction =
+export type PlayerAction =
   | InitPlayerAction
   | PlayAction
   | PauseAction
