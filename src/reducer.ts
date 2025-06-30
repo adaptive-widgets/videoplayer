@@ -1,8 +1,20 @@
-// Reducer to manage player states
+// playerReducer.js
+
+// Enum for Action Types
+export const PlayerActionTypes = {
+  INIT_PLAYER: 'INIT_PLAYER',
+  PLAY: 'PLAY',
+  PAUSE: 'PAUSE',
+  SET_VOLUME: 'SET_VOLUME',
+  SET_CURRENT_TIME: 'SET_CURRENT_TIME'
+};
+
+// Reducer Function
 const playerReducer = (state, action) => {
   const { playerId, type, payload } = action;
+
   switch (type) {
-    case 'INIT_PLAYER':
+    case PlayerActionTypes.INIT_PLAYER:
       return {
         ...state,
         [playerId]: {
@@ -13,26 +25,31 @@ const playerReducer = (state, action) => {
           ...payload
         }
       };
-    case 'PLAY':
+
+    case PlayerActionTypes.PLAY:
       return {
         ...state,
         [playerId]: { ...state[playerId], isPlaying: true }
       };
-    case 'PAUSE':
+
+    case PlayerActionTypes.PAUSE:
       return {
         ...state,
         [playerId]: { ...state[playerId], isPlaying: false }
       };
-    case 'SET_VOLUME':
+
+    case PlayerActionTypes.SET_VOLUME:
       return {
         ...state,
         [playerId]: { ...state[playerId], volume: payload }
       };
-    case 'SET_CURRENT_TIME':
+
+    case PlayerActionTypes.SET_CURRENT_TIME:
       return {
         ...state,
         [playerId]: { ...state[playerId], currentTime: payload }
       };
+
     default:
       return state;
   }
