@@ -1,32 +1,14 @@
-import { createContext, RefObject } from 'react';
+import { createContext } from 'react';
+import React from 'react';
+import { PlayersState, PlayerAction, PlayerState } from './reducer';
 
-// Define the PlayerState interface
-export interface PlayerState {
-  id: string;
-  isPlaying: boolean;
-  volume: number;
-  currentTime: number;
-  ref: RefObject<HTMLVideoElement>;
-}
-
-// Define the OverallState interface
-export interface OverallState {
-  [playerId: string]: PlayerState;
-}
-
-// Define action types
-export type PlayerAction =
-  | { type: 'PLAY'; playerId: string }
-  | { type: 'PAUSE'; playerId: string }
-  | { type: 'SET_VOLUME'; playerId: string; payload: number }
-  | { type: 'SET_CURRENT_TIME'; playerId: string; payload: number };
-
+// Define the shape of the context
 export interface PlayerRegistryContextType {
-  state: OverallState;
+  state: PlayersState;
   dispatch: React.Dispatch<PlayerAction>;
   createPlayer: (playerId: string, config?: Partial<PlayerState>) => void;
   getPlayer: (playerId: string) => PlayerState | undefined;
 }
 
-// Context to hold the player registry
+// Create the context with type or undefined (for initial empty value)
 export const PlayerRegistryContext = createContext<PlayerRegistryContextType | undefined>(undefined);

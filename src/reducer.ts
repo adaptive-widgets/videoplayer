@@ -56,18 +56,10 @@ type SetCurrentTimeAction = {
 };
 
 // Union of all Actions
-type PlayerAction =
-  | InitPlayerAction
-  | PlayAction
-  | PauseAction
-  | SetVolumeAction
-  | SetCurrentTimeAction;
+export type PlayerAction = InitPlayerAction | PlayAction | PauseAction | SetVolumeAction | SetCurrentTimeAction;
 
 // Reducer Function
-const playerReducer = (
-  state: PlayersState,
-  action: PlayerAction
-): PlayersState => {
+const playerReducer = (state: PlayersState, action: PlayerAction): PlayersState => {
   const { playerId } = action;
 
   switch (action.type) {
